@@ -63,6 +63,9 @@ listener.
 | [Replay protection and event idempotency](../apps/backend/docs/concepts-replay-protection.md)            | The device-scoped `eventId` dedup, the message-level `messageId` idempotency, the TTL, and the `dispatch_ack` duplicate flag.              |
 | [Backend caching reference](../apps/backend/docs/concepts-caching.md)                                    | The conversation-list cache: key, TTL, payload, every invalidation site, and the behaviour when Redis is down.                             |
 | [Presence, heartbeat & connection liveness](../apps/backend/docs/concepts-presence-heartbeat.md)         | The Redis presence key structure, the 30s/90s heartbeat timing contract, multi-device aggregation, and the debounced offline-broadcast behaviour. |
+| [Message edit and delete semantics](../apps/backend/docs/concepts-message-edit-delete.md)                | Authorization, how an edit is a new linked message rather than a mutation, what a deleted message's envelope does on `/sync`, and the honest limit of delete under E2EE. |
+| [AI assistant bridge](../apps/backend/docs/concepts-ai-assistant-bridge.md)                              | The full `ask_assistant` request path, the hardcoded agent URL, and exactly what plaintext leaves the client and reaches the backend and the AI agent. |
+| [Push notification decision matrix](../apps/backend/docs/concepts-push-decision-matrix.md)               | The full filter chain deciding whether a device gets a push, why one online device suppresses push to a user's other devices, and the coalescing/rate-limit layer on top. |
 | [Testing strategy and conventions](testing.md)                                                           | The Drizzle mocking pattern, driving socket handlers through the `dispatch` envelope, and the in-process counters that leak between tests. |
 | [Backend testing guide](../apps/backend/docs/testing.md)                                                 | The standard route-test mock set with a copyable skeleton, the Drizzle chain traps, and the state a suite has to reset between tests.      |
 
@@ -157,6 +160,7 @@ The Soroban workspace in `contracts/`: `token_transfer`, `group_treasury`, and `
 | [Token transfer flow](../contracts/docs/concepts-token-transfer-flow.md)        | The end-to-end flow of an in-chat payment through the contract.                                                                                                            |
 | [Token transfer storage](../contracts/docs/contracts-token-transfer-storage.md) | Storage keys and value types used by `token_transfer`.                                                                                                                     |
 | [WASM size and resource budget](../contracts/docs/concepts-resource-budget.md)  | The 100 KB per-contract CI gate, current sizes and headroom, and the levers available when a contract approaches the limit.                                                |
+| [How-to: add a contract function](../contracts/docs/howto-add-contract-function.md) | The full path from a new `#[contractimpl]` function to a working UI action: implementation, tests, snapshot regeneration, upgrade/redeploy, listener changes, and the frontend call. |
 
 ### Operator
 
